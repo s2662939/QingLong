@@ -1,0 +1,75 @@
+# =============================================================================
+# Docker 构建上下文忽略文件
+# 作用：减少构建上下文大小，加速镜像构建
+# =============================================================================
+
+# Git 目录
+.git
+.gitignore
+
+# Node.js 依赖
+node_modules/
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+*.egg
+dist/
+build/
+
+# 日志文件
+*.log
+logs/
+A4_Logs/
+
+# 临时文件
+*.tmp
+*.temp
+.cache/
+
+# IDE 配置
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 文档（不影响构建）
+*.md
+!README.md
+docs/
+
+# 压缩文件
+*.zip
+*.rar
+*.7z
+*.tar
+*.tar.gz
+
+# macOS 系统文件
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows 系统文件
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# 项目本地构建
+docker-compose.override.yml
+*.local
+
+# 编译产物
+*.o
+*.so
+*.dll
+*.exe
+
+# 虚拟环境
+venv/
+env/
+.venv/
