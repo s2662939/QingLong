@@ -1,0 +1,28 @@
+version: '3'
+services:
+  qinglong:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: A009-QingLong
+    restart: unless-stopped
+    ports:
+      - "5700:5700"
+    volumes:
+      - ./ql/config:/ql/config:rw
+      - ./ql/data:/ql/data:rw
+      - ./ql/db:/ql/db:rw
+      - ./ql/jbot:/ql/jbot:rw
+      - ./ql/log:/ql/log:rw
+      - ./ql/repo:/ql/repo:rw
+      - ./ql/scripts:/ql/scripts:rw
+      - ./:/ql/scripts/A009-QingLong:rw
+      - /volume1:/source:ro
+    environment:
+      - PROJECT_NAME=A009-QingLong
+      - TZ=Asia/Shanghai
+      - ENABLE_HANGUP=true
+      - ENABLE_WEB_PANEL=true
+      - ENABLE_DOCKER=true
+    stdin_open: true
+    tty: true

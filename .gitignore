@@ -1,0 +1,22 @@
+# Docker
+ql/
+*.tar.gz
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+
+# Logs
+A4_Logs/
+
+# Data
+A3_Data/
+A5_Json/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
