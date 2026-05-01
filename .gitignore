@@ -6,6 +6,7 @@ ql/
 __pycache__/
 *.py[cod]
 *.pyc
+.pytest_cache/
 
 # Logs
 A4_Logs/
@@ -14,9 +15,20 @@ A4_Logs/
 A3_Data/
 A5_Json/
 
+# IDE
+.vscode/
+.idea/
+*.swp
+
 # OS
 .DS_Store
 Thumbs.db
 
 # Env
 .env
+.env.local
+
+# Build
+*.egg-info/
+dist/
+build/
