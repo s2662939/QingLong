@@ -1,11 +1,12 @@
 # =============================================================================
 # 青龙面板定制镜像 - A009 项目专用
-# 优化版本 v2.0 - 2026-05-01
+# 优化版本 v2.1 - 2026-05-01
 # 优化内容：
 #   1. BuildKit 缓存挂载加速依赖安装
 #   2. 层合并减少镜像体积
 #   3. 安装全部依赖（含 numpy, opencv, requests）
 #   4. 挂载点优化
+#   5. 添加 MariaDB/MySQL 数据库支持（pymysql + DBUtils）
 # =============================================================================
 
 # 基础镜像
@@ -71,6 +72,13 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
         numpy>=1.24.0 \
         # OpenCV（人脸检测、视频封面）
         opencv-python>=4.5.0 && \
+    echo "=== 步骤3.5/4：安装 MariaDB/MySQL 数据库依赖 ===" && \
+    pip install --no-cache-dir \
+        # MariaDB/MySQL 连接库
+        pymysql>=1.1.0 \
+        # 数据库连接池（配合 pymysql 使用）
+        DBUtils>=3.0.0 \
+        cryptography>=41.0.0 && \
     echo "=== 步骤4/4：清理缓存并配置权限 ===" && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
